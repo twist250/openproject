@@ -9,6 +9,8 @@ services:
     volumes:
       - openproject-pgdata:/var/openproject/pgdata
       - openproject-static:/var/openproject/assets
+    environment: 
+      - SMTP_PASSWORD=${SENDGRID_API_KEY} #please remember to modify .env file
 volumes:
   openproject-pgdata:
     external: true #this tells docker-compose to use existing volume
