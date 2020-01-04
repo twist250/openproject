@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  openproject:
+    container_name: openproject
+    image: twist250/openproject
+    ports: #exposed ports (HOST:CONTAINER)
+      - 80:80 
+    volumes:
+      - openproject-pgdata:/var/openproject/pgdata
+      - openproject-static:/var/openproject/assets
+volumes:
+  openproject-pgdata:
+    external: true #this tells docker-compose to use existing volume
+  openproject-static:
+    external: true #this tells docker-compose to use existing volume
